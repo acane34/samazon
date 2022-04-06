@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   namespace :dashboard do
-    resources :users, only: [:index, :destror]
+    resources :users, only: [:index, :destroy]
     resources :major_categories, except: [:new]
     resources :categories, except: [:new]
     resources :products, except: [:show]
@@ -46,6 +46,7 @@ Rails.application.routes.draw do
       put "mypage/edit_password", :to => "users#edit_password"
       get "mypage/password", :to => "users#update_password"
       get "mypage/favorite", :to => "users#favorite"
+      delete "mypage/delete", :to => "users#destroy"
     end
   end
 
