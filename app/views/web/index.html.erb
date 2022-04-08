@@ -8,7 +8,11 @@
   <% @recommend_products.each do |recommend_product| %>
     <div class="col-4">
       <%= link_to product_path(recommend_product) do %>
-        <%= image_tag "/images/dummy.png", class: "img-thumbnail" %>
+        <% if recommend_product.image.attached? %>
+          <%= image_tag recommend_product.image, class: "img-fluid" %>
+        <% else %>
+          <%= image_tag "/images/dummy.png", class: "img-fluid" %>
+        <% end %>
       <% end %>
       <div class="col-12">
         <p class="samazon-product-level mt-2">
