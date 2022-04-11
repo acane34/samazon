@@ -54,6 +54,8 @@ Rails.application.routes.draw do
       get "mypage/password", :to => "users#update_password"
       get "mypage/favorite", :to => "users#favorite"
       delete "mypage/delete", :to => "users#destroy"
+      get "mypage/cart_history", :to => "users#cart_history_index", :as => "mypage_cart_histories"
+      get "mypage/caer_history/:num", :to => "users#cart_history_show", :as => "mypage_cart_history"
     end
   end
 
